@@ -1,11 +1,11 @@
 # c0m3t
 c0m3t Team's Hacking Attack Tools Project
 
-c0m3t ÆÀÀÇ ÇØÅ· °ø°İ µµ±¸ °³¹ß ÇÁ·ÎÁ§Æ®
+c0m3t íŒ€ì˜ í•´í‚¹ ê³µê²© ë„êµ¬ ê°œë°œ í”„ë¡œì íŠ¸
 
 This project applies a seperate license.
 
-ÀÌ ÇÁ·ÎÁ§Æ®´Â º°µµÀÇ ¶óÀÌ¼¾½º°¡ Àû¿ëµË´Ï´Ù.
+ì´ í”„ë¡œì íŠ¸ëŠ” ë³„ë„ì˜ ë¼ì´ì„¼ìŠ¤ê°€ ì ìš©ë©ë‹ˆë‹¤.
 
 This project includes the following tools:
 
@@ -13,8 +13,9 @@ This project includes the following tools:
 
 * Artificial Intelligence Hacker(In contemplation)
 
-ÀÌ ÇÁ·ÎÁ§Æ®¿¡´Â ´ÙÀ½°ú °°Àº µµ±¸µéÀÌ ÀÖ½À´Ï´Ù.
+ì´ í”„ë¡œì íŠ¸ì—ëŠ” ë‹¤ìŒê³¼ ê°™ì€ ë„êµ¬ë“¤ì´ ìˆìŠµë‹ˆë‹¤.
 
-* ¹öÆÛ ¿À¹öÇÃ¶ó¿ö(°èÈ¹ Áß)
+* ë²„í¼ ì˜¤ë²„í”Œë¼ì›Œ(ê³„íš ì¤‘)
 
-* ÀÎ°øÁö´É ÇØÄ¿(°èÈ¹ Áß)
+* ì¸ê³µì§€ëŠ¥ í•´ì»¤(ê³„íš ì¤‘)
+
