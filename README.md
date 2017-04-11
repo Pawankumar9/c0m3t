@@ -12,7 +12,7 @@ This project applies a seperate license.
 
 이 프로젝트는 별도의 라이센스가 적용됩니다.
 
-# The list of these tools
+# The list of the tools of this project
 This project includes the following tools:
 
 * Buffer OverFlower(In contemplation)
