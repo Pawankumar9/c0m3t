@@ -1,6 +1,6 @@
-﻿Hello, everyone. My name is JunTae Son.
+﻿Hello, everyone. This is c0m3t team.
 
-여러분, 안녕하십니까? 저는 손준태입니다.
+여러분, 안녕하십니까? 저희는 c0m3t 팀입니다.
 
 # Project Information
 c0m3t Team's Hacking Attack Tools Project
