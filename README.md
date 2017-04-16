@@ -2,6 +2,11 @@
 
 여러분, 안녕하십니까? 저희는 c0m3t 팀입니다.
 
+# Team Information
+The leader of c0m3t team is JunTae Son.
+
+c0m3t 팀장은 손준태입니다.
+
 # Project Information
 c0m3t Team's Hacking Attack Tools Project
 
