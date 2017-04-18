@@ -10,9 +10,13 @@ rstFileName = input()
 
 # Reading Source File
 print('Read Source File...')
-srcf = open(srcFileName, 'rb')
-sfdata = srcf.read()
-srcf.close()
+try:
+    srcf = open(srcFileName, 'rb')
+    sfdata = srcf.read()
+    srcf.close()
+except FileNotFoundError:
+    print('Failed!')
+    exit()
 
 # Reverse Data
 print('Reverse File Data...')
@@ -24,3 +28,4 @@ rstf = open(rstFileName, 'wb')
 rstf.write(rfdata)
 rstf.close()
 print('Finished!')
+exit()
