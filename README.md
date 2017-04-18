@@ -26,7 +26,7 @@ This project includes the following tools:
 
 * Artificial Intelligence Hacker(In contemplation)
 
-* Reverse Copy(In contemplation)
+* Reverse Copy(Available)
 
 이 프로젝트에는 다음과 같은 도구들이 있습니다.
 
@@ -36,4 +36,4 @@ This project includes the following tools:
 
 * 인공지능 해커(계획 중)
 
-* 리버스 카피(계획 중)
+* 리버스 카피(공개)
