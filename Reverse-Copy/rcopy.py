@@ -1,3 +1,5 @@
+# Python 3.6.1 or later is required!
+
 # Program Banner
 print('Reverse Copy')
 print('Forensics')
