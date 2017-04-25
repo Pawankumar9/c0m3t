@@ -7,9 +7,18 @@ print('Forensics')
 
 # File Name Input
 print('Source File Name')
-srcFileName = input()
+try:
+    srcFileName = sys.argv[1]
+    print(srcFileName)
+except IndexError:
+    srcFileName = input()
+
 print('Result File Name')
-rstFileName = input()
+try:
+    rstFileName = sys.argv[2]
+    print(rstFileName)
+except IndexError:
+    rstFileName = input()
 
 # Reading Source File
 print('Read Source File...')
