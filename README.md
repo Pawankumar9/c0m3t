@@ -24,7 +24,7 @@ This project includes the following tools:
 
 * Format Coder(In contemplation)
 
-* Artificial Intelligence Hacker(In contemplation)
+* Artificial Intelligence Hacker(Feature design)
 
 * Reverse Copy(Available)
 
@@ -34,6 +34,6 @@ This project includes the following tools:
 
 * 포맷 코더(계획 중)
 
-* 인공지능 해커(계획 중)
+* 인공지능 해커(기능 설계 중)
 
 * 리버스 카피(공개)
