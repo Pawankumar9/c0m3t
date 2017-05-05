@@ -26,7 +26,7 @@ This project includes the following tools:
 
 * Artificial Intelligence Hacker(Feature design)
 
-* Reverse Copy(Available)
+* Reverse Copy
 
 이 프로젝트에는 다음과 같은 도구들이 있습니다.
 
@@ -36,4 +36,4 @@ This project includes the following tools:
 
 * 인공지능 해커(기능 설계 중)
 
-* 리버스 카피(공개)
+* 리버스 카피
