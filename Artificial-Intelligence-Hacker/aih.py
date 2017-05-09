@@ -4,3 +4,8 @@ import tensorflow as tsfl
 
 # Program Banner
 print('Artificial Intelligence Hacker')
+
+# Print Message
+mesg = tsfl.constant('Hello, Artificial Intelligence Hacker!')
+sesn = tsfl.Session()
+print(sesn.run(mesg))
