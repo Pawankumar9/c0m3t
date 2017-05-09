@@ -26,8 +26,9 @@ try:
     srcf = open(srcFileName, 'rb')
     sfdata = srcf.read()
     srcf.close()
-except FileNotFoundError:
+except FileNotFoundError as err:
     print('Failed!')
+    print(err)
     exit()
 
 # Reverse Data
