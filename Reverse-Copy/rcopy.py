@@ -8,22 +8,22 @@ print('Forensics')
 # File Name Input
 print('Source File Name')
 try:
-    srcFileName = sys.argv[1]
-    print(srcFileName)
+    sourceFileName = sys.argv[1]
+    print(sourceFileName)
 except IndexError:
-    srcFileName = input()
+    sourceFileName = input()
 
 print('Result File Name')
 try:
-    rstFileName = sys.argv[2]
-    print(rstFileName)
+    resultFileName = sys.argv[2]
+    print(resultFileName)
 except IndexError:
-    rstFileName = input()
+    resultFileName = input()
 
 # Reading Source File
 print('Read Source File...')
 try:
-    srcf = open(srcFileName, 'rb')
+    srcf = open(sourceFileName, 'rb')
     sfdata = srcf.read()
     srcf.close()
 except FileNotFoundError as err:
@@ -37,7 +37,7 @@ rfdata = sfdata[::-1]
 
 # Writing Result File
 print('Write Result File...')
-rstf = open(rstFileName, 'wb')
+rstf = open(resultFileName, 'wb')
 rstf.write(rfdata)
 rstf.close()
 print('Finished!')
