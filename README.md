@@ -20,9 +20,7 @@ This project applies a seperate license.
 # The list of the tools of this project
 This project includes the following tools:
 
-* Buffer OverFlower(In contemplation)
-
-* Format Coder(In contemplation)
+* Command Shell Stealer(Feature design)
 
 * Artificial Intelligence Hacker(Feature design)
 
@@ -30,9 +28,7 @@ This project includes the following tools:
 
 이 프로젝트에는 다음과 같은 도구들이 있습니다.
 
-* 버퍼 오버플라워(계획 중)
-
-* 포맷 코더(계획 중)
+* 명령 쉘 도둑(기능 설계 중)
 
 * 인공지능 해커(기능 설계 중)
 
