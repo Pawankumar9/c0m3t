@@ -17,6 +17,14 @@ def x86pack(data):
 def x86unpack(data):
     return struct.unpack('<I', data)[0]
 
+# Packing on x64 platform
+def x64pack(data):
+    return struct.pack('<Q', data)
+
+# Unpacking on x64 platform
+def x64unpack(data):
+    return struct.unpack('<Q', data)
+
 # Program Banner
 print('Command Shell Stealer')
 print('Exploitation')
