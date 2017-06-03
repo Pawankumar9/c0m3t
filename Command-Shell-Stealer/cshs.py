@@ -23,7 +23,14 @@ def x64pack(data):
 
 # Unpacking on x64 platform
 def x64unpack(data):
-    return struct.unpack('<Q', data)
+    return struct.unpack('<Q', data)[0]
+
+# Interactive mode on telnet
+def interact(targetServer):
+    print('* Interactive mode')
+    telnetConnection = telnetlib.Telnet()
+    telnetConnection.sock = targetServer
+    telnetConnection.interact()
 
 # Program Banner
 print('Command Shell Stealer')
