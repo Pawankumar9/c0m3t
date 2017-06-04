@@ -51,3 +51,11 @@ try:
 except IndexError:
     print('@ Input target server port')
     targetServerPort = input('> ')
+
+# Connecting to target server
+targetServer = connect(targetServerAddress, targetServerPort)
+
+# TODO: Write code here!
+
+# Running interactive mode
+interact(targetServer)
