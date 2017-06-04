@@ -52,10 +52,12 @@ except IndexError:
     print('@ Input target server port')
     targetServerPort = input('> ')
 
+# TODO: Write payload input code here!
+
 # Connecting to target server
 targetServer = connect(targetServerAddress, targetServerPort)
 
-# TODO: Write code here!
+# TODO: Write exploit code here!
 
 # Running interactive mode
 interact(targetServer)
