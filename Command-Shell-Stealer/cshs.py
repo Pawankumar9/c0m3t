@@ -52,6 +52,7 @@ except IndexError:
     print('[+] Input target server port.')
     targetServerPort = input('[>] ')
 
+# Warning message for chargen service
 if targetServerPort == '19':
     print('[!] Chargen is too dangerous for buffered writer!')
     print(r'[+] Do you want to continue it? [yes/no]')
