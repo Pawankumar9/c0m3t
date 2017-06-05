@@ -28,7 +28,7 @@ def x64unpack(data):
 
 # Interactive mode on telnet
 def interact(targetServer):
-    print('* Interactive mode')
+    print('[*] Interactive mode')
     telnetConnection = telnetlib.Telnet()
     telnetConnection.sock = targetServer
     telnetConnection.interact()
@@ -40,17 +40,32 @@ print('Exploitation')
 # Target server address and port input
 try:
     targetServerAddress = sys.argv[1]
-    print('* Target server address is '+targetServerAddress)
+    print('[*] Target server address is '+targetServerAddress+'.')
 except IndexError:
-    print('@ Input target server address')
-    targetServerAddress = input('> ')
+    print('[+] Input target server address.')
+    targetServerAddress = input('[>] ')
 
 try:
     targetServerPort = sys.argv[2]
-    print('* Target server port is '+targetServerPort)
+    print('[*] Target server port is '+targetServerPort+'.')
 except IndexError:
-    print('@ Input target server port')
-    targetServerPort = input('> ')
+    print('[+] Input target server port.')
+    targetServerPort = input('[>] ')
+
+if targetServerPort == '19':
+    print('[!] Chargen is too dangerous for buffered writer!')
+    print(r'[+] Do you want to continue it? [yes/no]')
+    answerCode = ''
+    while answerCode != 'yes':
+        answerCode = input('[>] ')
+        if answerCode == 'yes':
+            print('[*] You chose to connect to chargen.')
+        elif answerCode == 'no':
+            print('[*] Exiting Command Shell Stealer...')
+            exit()
+        else:
+            print('[-] Incorrect answer entered.')
+    print('[*] Preparing to connect to chargen...')
 
 # TODO: Write payload input code here!
 
