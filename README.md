@@ -17,6 +17,11 @@ This project applies a seperate license.
 
 이 프로젝트는 별도의 라이센스가 적용됩니다.
 
+# Version Information
+Current common version code name of these tools is Nu. Nu is the first god to appear in ancient Egyptian mythology in the chaos, sea, and river.
+
+이 도구들의 현재 공통 버전 코드명은 누입니다. 누는 이집트의 혼돈, 바다, 강의 신이자 고대 이집트 신화에 나오는 최초의 신입니다.
+
 # The list of the tools of this project
 This project includes the following tools:
 
