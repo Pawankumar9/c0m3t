@@ -6,6 +6,20 @@ import os
 import struct
 import telnetlib
 
+omSymbol = '[*]' # Output message symbol
+imSymbol = '[+]' # Input message symbol
+ipSymbol = '[>]' # Input prompt symbol
+wmSymbol = '[!]' # Warning message symbol
+emSymbol = '[-]' # Error message symbol
+
+# Applying the color to the symbols if the operating system is Linux
+if os.name == 'posix':
+    omSymbol = '\x1b[1;34m' + omSymbol + '\x1b[1;0m' # Blue
+    imSymbol = '\x1b[1;32m' + imSymbol + '\x1b[1;0m' # Green
+    ipSymbol = '\x1b[1;36m' + ipSymbol + '\x1b[1;0m' # Cyan
+    wmSymbol = '\x1b[1;33m' + wmSymbol + '\x1b[1;0m' # Yellow
+    emSymbol = '\x1b[1;31m' + emSymbol + '\x1b[1;0m' # Red
+
 # Target server connection
 def connect(address, port):
     return socket.create_connection((address, port))
@@ -28,45 +42,45 @@ def x64unpack(data):
 
 # Interactive mode on telnet
 def interact(targetServer):
-    print('[*] Interactive mode')
+    print(omSymbol + ' Interactive mode')
     telnetConnection = telnetlib.Telnet()
     telnetConnection.sock = targetServer
     telnetConnection.interact()
 
 # Program banner
-print('Command Shell Stealer')
+print('Command Shell Stealer Nu')
 print('Exploitation')
 
 # Target server address and port input
 try:
     targetServerAddress = sys.argv[1]
-    print('[*] Target server address is '+targetServerAddress+'.')
+    print(omSymbol + ' Target server address is ' + targetServerAddress + '.')
 except IndexError:
-    print('[+] Input target server address.')
-    targetServerAddress = input('[>] ')
+    print(imSymbol + ' Input target server address.')
+    targetServerAddress = input(ipSymbol + ' ')
 
 try:
     targetServerPort = sys.argv[2]
-    print('[*] Target server port is '+targetServerPort+'.')
+    print(omSymbol + ' Target server port is ' + targetServerPort + '.')
 except IndexError:
-    print('[+] Input target server port.')
-    targetServerPort = input('[>] ')
+    print(imSymbol + ' Input target server port.')
+    targetServerPort = input(ipSymbol + ' ')
 
 # Warning message for chargen service
 if targetServerPort == '19':
-    print('[!] Chargen is too dangerous for buffered writer!')
-    print(r'[+] Do you want to continue it? [yes/no]')
+    print(wmSymbol + ' Chargen is too dangerous for buffered writer!')
+    print(imSymbol + ' Do you want to continue it? [yes/no]')
     answerCode = ''
     while answerCode != 'yes':
-        answerCode = input('[>] ')
+        answerCode = input(ipSymbol + ' ')
         if answerCode == 'yes':
-            print('[*] You chose to connect to chargen.')
+            print(omSymbol + ' You chose to connect to chargen.')
         elif answerCode == 'no':
-            print('[*] Exiting Command Shell Stealer...')
+            print(omSymbol + ' Exiting Command Shell Stealer...')
             exit()
         else:
-            print('[-] Incorrect answer entered.')
-    print('[*] Preparing to connect to chargen...')
+            print(emSymbol + ' Incorrect answer entered.')
+    print(omSymbol + ' Preparing to connect to chargen...')
 
 # TODO: Write payload input code here!
 
