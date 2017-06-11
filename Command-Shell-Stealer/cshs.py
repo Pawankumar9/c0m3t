@@ -20,7 +20,22 @@ if os.name == 'posix':
     wmSymbol = '\x1b[1;33m' + wmSymbol + '\x1b[1;0m' # Yellow
     emSymbol = '\x1b[1;31m' + emSymbol + '\x1b[1;0m' # Red
 
-# Target server connection
+# Program manual
+def manual():
+    if os.name == 'nt':
+        print(omSymbol + ' Usage on Windows')
+        print(' python cshs.py [option] [<address> <port>]\n')
+    elif os.name == 'posix':
+        print(omSymbol + ' Usage on Linux')
+        print(' python3 cshs.py [option] [<address> <port>]\n')
+    else:
+        print(emSymbol + ' Usage on ' + os.name + ' is not exist!')
+        exit()
+    print(' -h\tPrint this manual.')
+    print(' -s\tStart this program.')
+    exit()
+
+# Target server connection creation
 def connect(address, port):
     return socket.create_connection((address, port))
 
@@ -51,26 +66,47 @@ def interact(targetServer):
 print('Command Shell Stealer Nu')
 print('Exploitation')
 
+# Answer code initialization
+answerCode = ''
+
+# Manual output for the beginners
+try:
+    if sys.argv[1] == '-h':
+        manual()
+    elif sys.argv[1] == '-s':
+        print(omSymbol + ' Starting Command Shell Stealer...')
+    else:
+        print(emSymbol + ' Invalid option entered!')
+        print(omSymbol + ' Type \"-h\" option if you need some help.')
+        exit()
+except IndexError:
+    print(emSymbol + ' No option has been entered.')
+    print(omSymbol + ' Type \"-h\" option if you need some help.')
+    exit()
+
 # Target server address and port input
 try:
-    targetServerAddress = sys.argv[1]
+    targetServerAddress = sys.argv[2]
     print(omSymbol + ' Target server address is ' + targetServerAddress + '.')
 except IndexError:
     print(imSymbol + ' Input target server address.')
     targetServerAddress = input(ipSymbol + ' ')
 
 try:
-    targetServerPort = sys.argv[2]
+    targetServerPort = sys.argv[3]
     print(omSymbol + ' Target server port is ' + targetServerPort + '.')
 except IndexError:
     print(imSymbol + ' Input target server port.')
     targetServerPort = input(ipSymbol + ' ')
 
+if targetServerPort.isdigit() == False:
+    print(emSymbol + ' Invalid target server port entered!')
+    exit()
+
 # Warning message for chargen service
 if targetServerPort == '19':
     print(wmSymbol + ' Chargen is too dangerous for buffered writer!')
     print(imSymbol + ' Do you want to continue it? [yes/no]')
-    answerCode = ''
     while answerCode != 'yes':
         answerCode = input(ipSymbol + ' ')
         if answerCode == 'yes':
@@ -81,6 +117,7 @@ if targetServerPort == '19':
         else:
             print(emSymbol + ' Incorrect answer entered.')
     print(omSymbol + ' Preparing to connect to chargen...')
+    answerCode = ''
 
 # TODO: Write payload input code here!
 
