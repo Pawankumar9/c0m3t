@@ -32,7 +32,7 @@ def manual():
         print(emSymbol + ' Usage on ' + os.name + ' is not exist!')
         exit()
     print(' -h\tPrint this manual.')
-    print(' -s\tStart this program.')
+    print(' -s\tStart this program.') # FIXME: Add target type on manual!
     exit()
 
 # Target server connection creation
@@ -84,16 +84,19 @@ except IndexError:
     print(omSymbol + ' Type \"-h\" option if you need some help.')
     exit()
 
+# TODO: Add target type input code here!
+
 # Target server address and port input
+# FIXME: Put all of these codes into If ~ Else!
 try:
-    targetServerAddress = sys.argv[2]
+    targetServerAddress = sys.argv[2] # FIXME: Change to 3!
     print(omSymbol + ' Target server address is ' + targetServerAddress + '.')
 except IndexError:
     print(imSymbol + ' Input target server address.')
     targetServerAddress = input(ipSymbol + ' ')
 
 try:
-    targetServerPort = sys.argv[3]
+    targetServerPort = sys.argv[3] # FIXME: Change to 4!
     print(omSymbol + ' Target server port is ' + targetServerPort + '.')
 except IndexError:
     print(imSymbol + ' Input target server port.')
