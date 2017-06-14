@@ -20,6 +20,12 @@ if os.name == 'posix':
     wmSymbol = '\x1b[1;33m' + wmSymbol + '\x1b[1;0m' # Yellow
     emSymbol = '\x1b[1;31m' + emSymbol + '\x1b[1;0m' # Red
 
+# Program options
+optionProgramManual = '-h'
+optionTargetType = '-t'
+codeTargetTypeLocal = ':local'
+codeTargetTypeRemote = ':remote'
+
 # Program manual
 def manual():
     if os.name == 'nt':
@@ -31,8 +37,9 @@ def manual():
     else:
         print(emSymbol + ' Usage on ' + os.name + ' is not exist!')
         exit()
-    print(' -h\tPrint this manual.')
-    print(' -s\tStart this program.') # FIXME: Add target type on manual!
+    print(omSymbol + ' Options list')
+    print(' ' + optionProgramManual + '\t'*3 + 'Print this manual.')
+    print(' ' + optionTargetType + ':<local | remote>\tStart this program.')
     exit()
 
 # Target server connection creation
@@ -66,37 +73,42 @@ def interact(targetServer):
 print('Command Shell Stealer Nu')
 print('Exploitation')
 
-# Answer code initialization
+# Variables initialization
 answerCode = ''
+optionCode = ''
+targetType = ''
+targetServerAddress = ''
+targetServerPort = ''
 
-# Manual output for the beginners
+# Option code decoder
 try:
-    if sys.argv[1] == '-h':
+    if sys.argv[1] == optionProgramManual:
         manual()
-    elif sys.argv[1] == '-s':
+    elif sys.argv[1].startswith(optionTargetType) == True:
         print(omSymbol + ' Starting Command Shell Stealer...')
+        optionCode = sys.argv[1]
+        targetType = optionCode.replace(optionTargetType, '')
     else:
         print(emSymbol + ' Invalid option entered!')
         print(omSymbol + ' Type \"-h\" option if you need some help.')
         exit()
 except IndexError:
     print(emSymbol + ' No option has been entered.')
-    print(omSymbol + ' Type \"-h\" option if you need some help.')
-    exit()
-
-# TODO: Add target type input code here!
+    print(omSymbol + ' Starting Command Shell Stealer...')
+    print(imSymbol + ' Input target type. [:local/:remote]')
+    targetType = input(ipSymbol + ' ')
 
 # Target server address and port input
 # FIXME: Put all of these codes into If ~ Else!
 try:
-    targetServerAddress = sys.argv[2] # FIXME: Change to 3!
+    targetServerAddress = sys.argv[2]
     print(omSymbol + ' Target server address is ' + targetServerAddress + '.')
 except IndexError:
     print(imSymbol + ' Input target server address.')
     targetServerAddress = input(ipSymbol + ' ')
 
 try:
-    targetServerPort = sys.argv[3] # FIXME: Change to 4!
+    targetServerPort = sys.argv[3]
     print(omSymbol + ' Target server port is ' + targetServerPort + '.')
 except IndexError:
     print(imSymbol + ' Input target server port.')
