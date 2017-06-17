@@ -104,7 +104,6 @@ except IndexError:
     targetType = input(ipSymbol + ' ')
 
 # Target server address and port input
-# FIXME: Put all of these codes into If ~ Else!
 if targetType == ':remote':
     try:
         targetServerAddress = sys.argv[2]
@@ -141,6 +140,7 @@ if targetType == ':remote':
         print(omSymbol + ' Preparing to connect to chargen...')
         answerCode = ''
 
+# Target file name input
 elif targetType == ':local':
     print()
 
