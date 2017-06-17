@@ -31,6 +31,8 @@ This project includes the following tools:
 
 * Reverse Copy
 
+* Surface Analyzer(Feature design)
+
 이 프로젝트에는 다음과 같은 도구들이 있습니다.
 
 * 명령 쉘 도둑(기능 설계 중)
@@ -38,3 +40,5 @@ This project includes the following tools:
 * 인공지능 해커(기능 설계 중)
 
 * 리버스 카피
+
+* 표층 분석기(기능 설계 중)
