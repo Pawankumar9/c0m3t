@@ -30,16 +30,21 @@ codeTargetTypeRemote = ':remote'
 def manual():
     if os.name == 'nt':
         print(omSymbol + ' Usage on Windows')
-        print(' python cshs.py [option] [<address> <port>]\n')
+        print(' python cshs.py [option] [<address> <port> | <file>]\n')
     elif os.name == 'posix':
         print(omSymbol + ' Usage on Linux')
-        print(' python3 cshs.py [option] [<address> <port>]\n')
+        print(' python3 cshs.py [option] [<address> <port> | <file>]\n')
     else:
         print(emSymbol + ' Usage on ' + os.name + ' is not exist!')
         exit()
-    print(omSymbol + ' Options list')
+    print(omSymbol + ' Common options list')
     print(' ' + optionProgramManual + '\t'*3 + 'Print this manual.')
-    print(' ' + optionTargetType + ':<local | remote>\tStart this program.')
+    print(' ' + optionTargetType + ':<local | remote>\tStart this program.\n')
+    print(omSymbol + ' Remote options list')
+    print(' <address>\tThe address of the target server')
+    print(' <port>' + '\t'*2 + 'The port number of the target server\n')
+    print(omSymbol + ' Local options list')
+    print(' <file>' + '\t'*2 + 'The name of the target file\n')
     exit()
 
 # Target server connection creation
@@ -79,13 +84,15 @@ optionCode = ''
 targetType = ''
 targetServerAddress = ''
 targetServerPort = ''
+targetFileName = ''
+
+print(omSymbol + ' Starting Command Shell Stealer...')
 
 # Option code decoder
 try:
     if sys.argv[1] == optionProgramManual:
         manual()
     elif sys.argv[1].startswith(optionTargetType) == True:
-        print(omSymbol + ' Starting Command Shell Stealer...')
         optionCode = sys.argv[1]
         targetType = optionCode.replace(optionTargetType, '')
     else:
@@ -93,46 +100,53 @@ try:
         print(omSymbol + ' Type \"-h\" option if you need some help.')
         exit()
 except IndexError:
-    print(emSymbol + ' No option has been entered.')
-    print(omSymbol + ' Starting Command Shell Stealer...')
     print(imSymbol + ' Input target type. [:local/:remote]')
     targetType = input(ipSymbol + ' ')
 
 # Target server address and port input
 # FIXME: Put all of these codes into If ~ Else!
-try:
-    targetServerAddress = sys.argv[2]
-    print(omSymbol + ' Target server address is ' + targetServerAddress + '.')
-except IndexError:
-    print(imSymbol + ' Input target server address.')
-    targetServerAddress = input(ipSymbol + ' ')
+if targetType == ':remote':
+    try:
+        targetServerAddress = sys.argv[2]
+        print(omSymbol + ' Target server address is ' + targetServerAddress + '.')
+    except IndexError:
+        print(imSymbol + ' Input target server address.')
+        targetServerAddress = input(ipSymbol + ' ')
 
-try:
-    targetServerPort = sys.argv[3]
-    print(omSymbol + ' Target server port is ' + targetServerPort + '.')
-except IndexError:
-    print(imSymbol + ' Input target server port.')
-    targetServerPort = input(ipSymbol + ' ')
+    try:
+        targetServerPort = sys.argv[3]
+        print(omSymbol + ' Target server port is ' + targetServerPort + '.')
+    except IndexError:
+        print(imSymbol + ' Input target server port.')
+        targetServerPort = input(ipSymbol + ' ')
 
-if targetServerPort.isdigit() == False:
-    print(emSymbol + ' Invalid target server port entered!')
+    if targetServerPort.isdigit() == False:
+        print(emSymbol + ' Invalid target server port entered!')
+        exit()
+
+    # Warning message for chargen service
+    if targetServerPort == '19':
+        print(wmSymbol + ' Chargen is too dangerous for buffered writer!')
+        print(imSymbol + ' Do you want to continue it? [yes/no]')
+        while answerCode != 'yes':
+            answerCode = input(ipSymbol + ' ')
+            if answerCode == 'yes':
+                print(omSymbol + ' You chose to connect to chargen.')
+            elif answerCode == 'no':
+                print(omSymbol + ' Exiting Command Shell Stealer...')
+                exit()
+            else:
+                print(emSymbol + ' Incorrect answer entered.')
+        
+        print(omSymbol + ' Preparing to connect to chargen...')
+        answerCode = ''
+
+elif targetType == ':local':
+    print()
+
+else:
+    print(emSymbol + ' Invalid target type entered!')
     exit()
-
-# Warning message for chargen service
-if targetServerPort == '19':
-    print(wmSymbol + ' Chargen is too dangerous for buffered writer!')
-    print(imSymbol + ' Do you want to continue it? [yes/no]')
-    while answerCode != 'yes':
-        answerCode = input(ipSymbol + ' ')
-        if answerCode == 'yes':
-            print(omSymbol + ' You chose to connect to chargen.')
-        elif answerCode == 'no':
-            print(omSymbol + ' Exiting Command Shell Stealer...')
-            exit()
-        else:
-            print(emSymbol + ' Incorrect answer entered.')
-    print(omSymbol + ' Preparing to connect to chargen...')
-    answerCode = ''
 
 # TODO: Write payload input code here!
 
