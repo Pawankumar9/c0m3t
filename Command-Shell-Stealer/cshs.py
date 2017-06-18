@@ -140,20 +140,27 @@ if targetType == ':remote':
         print(omSymbol + ' Preparing to connect to chargen...')
         answerCode = ''
 
+    # Connecting to target server
+    targetServer = connect(targetServerAddress, targetServerPort)
+
+    # TODO: Write payload input code here!
+    # TODO: Write exploit code here!
+
+    # Running interactive mode
+    interact(targetServer)
+
 # Target file name input
 elif targetType == ':local':
-    print()
+    try:
+        targetFileName = sys.argv[2]
+        print(omSymbol + ' Target file is <' + targetFileName + '>.')
+    except IndexError:
+        print(imSymbol + ' Input the name of the target file.')
+        targetFileName = input(ipSymbol + ' ')
+
+    # TODO: Write payload input code here!
+    # TODO: Write exploit code here!
 
 else:
     print(emSymbol + ' Invalid target type entered!')
     exit()
-
-# TODO: Write payload input code here!
-
-# Connecting to target server
-targetServer = connect(targetServerAddress, targetServerPort)
-
-# TODO: Write exploit code here!
-
-# Running interactive mode
-interact(targetServer)
