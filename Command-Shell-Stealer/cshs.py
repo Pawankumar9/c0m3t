@@ -67,6 +67,10 @@ def x64pack(data):
 def x64unpack(data):
     return struct.unpack('<Q', data)[0]
 
+# Reading payload from data file
+def payload(dataFile):
+    print()
+
 # Interactive mode on telnet
 def interact(targetServer):
     print(omSymbol + ' Interactive mode')
@@ -85,6 +89,12 @@ targetType = ''
 targetServerAddress = ''
 targetServerPort = ''
 targetFileName = ''
+vulnerabilityType = ''
+bufferSize = 0
+payload = ''
+
+# Data file name setting
+dataFileName = 'payload.properties'
 
 print(omSymbol + ' Starting Command Shell Stealer...')
 
@@ -143,7 +153,9 @@ if targetType == ':remote':
     # Connecting to target server
     targetServer = connect(targetServerAddress, targetServerPort)
 
-    # TODO: Write payload input code here!
+    # Payload input
+    dataFile = open(dataFileName, 'r')
+    
     # TODO: Write exploit code here!
 
     # Running interactive mode
@@ -158,7 +170,9 @@ elif targetType == ':local':
         print(imSymbol + ' Input the name of the target file.')
         targetFileName = input(ipSymbol + ' ')
 
-    # TODO: Write payload input code here!
+    # Payload input
+    dataFile = open(dataFileName, 'r')
+    
     # TODO: Write exploit code here!
 
 else:
